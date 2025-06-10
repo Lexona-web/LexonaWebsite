@@ -6,7 +6,7 @@
   <title>Lexona</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    /* Neuer animierter Hintergrund für <body> */
+
 body {
   background: linear-gradient(-45deg, #00c9ff, #92fe9d, #fcb045, #fd1d1d);
   background-size: 400% 400%;
@@ -14,12 +14,12 @@ body {
   color: var(--text);
 }
 
-/* Header Titel Glow */
+
 header h1 {
   animation: glow 2.5s ease-in-out infinite alternate;
 }
 
-/* Hover Shine-Effekt für Karten */
+
 .project-card:hover {
   position: relative;
   overflow: hidden;
@@ -37,18 +37,18 @@ header h1 {
   animation: shine 1s ease-in-out;
 }
 
-/* Pulsierende Button-Animation */
+
 .project-btn {
   animation: pulse 3s infinite;
 }
 
-/* GitHub Link Hover Glow */
+
 .social a:hover {
   color: #ff4081;
   text-shadow: 0 0 8px #ff4081;
 }
 
-/* Keyframes für Animationen */
+
 @keyframes gradientShift {
   0% {background-position: 0% 50%;}
   50% {background-position: 100% 50%;}
@@ -247,7 +247,7 @@ header h1 {
       }
     }
 
-    /* Animations-Styles */
+  
     .animate-on-scroll {
       opacity: 0;
       transform: translateY(20px);
@@ -365,13 +365,13 @@ header h1 {
   </footer>
 
   <script>
-    // Intersection Observer für Animationen beim Scrollen
+
     document.addEventListener("DOMContentLoaded", () => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target); // Animation nur einmal abspielen
+            observer.unobserve(entry.target); 
           }
         });
       }, { threshold: 0.1 });
