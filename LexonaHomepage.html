@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lexona</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Neuer animierter Hintergrund für <body> */
+body {
+  background: linear-gradient(-45deg, #00c9ff, #92fe9d, #fcb045, #fd1d1d);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: var(--text);
+}
+
+/* Header Titel Glow */
+header h1 {
+  animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+/* Hover Shine-Effekt für Karten */
+.project-card:hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.1), rgba(255,255,255,0.6), rgba(255,255,255,0.1));
+  transform: skewX(-25deg);
+  animation: shine 1s ease-in-out;
+}
+
+/* Pulsierende Button-Animation */
+.project-btn {
+  animation: pulse 3s infinite;
+}
+
+/* GitHub Link Hover Glow */
+.social a:hover {
+  color: #ff4081;
+  text-shadow: 0 0 8px #ff4081;
+}
+
+/* Keyframes für Animationen */
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px var(--primary), 0 0 20px var(--secondary);
+  }
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 15px var(--primary), 0 0 25px var(--secondary);
+  }
+}
+
+@keyframes shine {
+  0% {left: -75%;}
+  100% {left: 125%;}
+}
+
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.05);}
+  100% {transform: scale(1);}
+}
+
+    :root {
+      --bg: #f0f9ff;
+      --text: #1a1a1a;
+      --primary: #00c9ff;
+      --secondary: #92fe9d;
+      --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+      --card-bg: white;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: var(--gradient);
+      padding: 120px 20px;
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px 0;
+      z-index: 10;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 30px;
+      color: #0077b6;
+      text-align: center;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 20px;
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: #444;
+      margin: 10px 0 15px;
+    }
+
+    .project-btn {
+      display: inline-block;
+      padding: 10px 16px;
+      background: var(--gradient);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .project-btn:hover {
+      filter: brightness(1.1);
+    }
+
+    .about, .contact {
+      background: white;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 40px;
+    }
+
+    .social {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .social a {
+      margin: 0 12px;
+      font-size: 24px;
+      color: var(--primary);
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+
+    .social a:hover {
+      transform: scale(1.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #e0f7fa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Animations-Styles */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .new-badge {
+      display: inline-block;
+      margin-left: 10px;
+      padding: 6px 10px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(135deg, #00c9ff, #92fe9d);
+      clip-path: polygon(
+        30% 0%, 70% 0%,
+        100% 30%, 100% 70%,
+        70% 100%, 30% 100%,
+        0% 70%, 0% 30%
+      );
+      animation: pulse 2s infinite;
+      box-shadow: 0 0 10px rgba(0, 201, 255, 0.4);
+    }
+
+    .project-title-with-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="animate-on-scroll">
+    <h1>Lexona</h1>
+    <p>🌐 Gamer & Web-Developer</p>
+  </header>
+  <nav>
+    <a href="#about">About me</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" class="about animate-on-scroll" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 300px; text-align: center;">
+    <h2>About Me</h2>
+    <p>
+      Hi! I'm a creative developer with a focus on modern web technologies.
+      I'm passionate about designing interfaces that are beautiful and user-friendly.
+    </p>
+  </section>
+  
+  <section id="projects" class="animate-on-scroll">
+    <h2>My projects</h2>
+    <div class="projects-grid">
+      <div class="project-card animate-on-scroll">
+        <div class="project-content">
+          <h3 class="project-title">EverydayHelper VI - Alltagshelfer VI</h3>
+          <p class="project-desc">The latest version of the everyday helper, featuring a beautiful design and a bunch of shortcuts.</p>
+          <a href="https://github.com/Lexona-web/EverydayHelper-VI---Alltagshelfer-VI.git" class="project-btn" target="_blank">check out</a>
+        </div>
+      </div>
+      <div class="project-card animate-on-scroll">
+        <div class="project-content">
+            <h3 class="project-title">To-Do List</h3>
+          <p class="project-desc">A simple To-Do List website with priority, deadline and check feature.</p>
+          <a href="to-do-list.lexona.de" class="project-btn" target="_blank">check out</a>
+        </div>
+      </div>
+    <div class="project-card animate-on-scroll">
+      <div class="project-content">
+
+          <h3 class="project-title">Rick and Morty Chrackter Database</h3>
+        <p class="project-desc">A Database with ALL rick and morty charackter with a search and filter feature.</p>
+        <a href="rick-and-morty.lexona.de" class="project-btn" target="_blank">check out</a>
+      </div>
+    </div>
+          <div class="project-card animate-on-scroll">
+        <div class="project-content">
+            <h3 class="project-title">Joke Generator</h3>
+          <p class="project-desc">A website with a bunch of jokes featuring a nice design with a saving feature.</p>
+          <a href="joke-generator.lexona.de" class="project-btn" target="_blank">check out</a>
+        </div>
+      </div>
+                <div class="project-card animate-on-scroll">
+        <div class="project-content">
+          <div class="project-title-with-badge">
+            <h3 class="project-title">The Timer Mastery</h3>
+            <span class="new-badge">NEW</span>
+          </div>
+          <p class="project-desc">Just a Timer? Wrong! Every Minute you'll get a Achievement with a unique Animation that comes with different raritys, are you able to collect all of them?</p>
+          <a href="timer-mastery.lexona.de" class="project-btn" target="_blank">check out</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="contact animate-on-scroll" style="text-align: center;">
+    <h2>Contact</h2>
+    <p>Interested in working together? Or just curious? Feel free to drop me a message!</p>
+    <div class="social">
+      <a href="https://github.com/Lexona-web" target="_blank" title="GitHub">Github 🔗</a>
+      <p>
+        serticmarali@gmail.com 📧
+      </p>
+    </div>
+  </section>
+
+  <footer class="animate-on-scroll">
+    © 2025 Lennox Sertic – All rights reserved
+  </footer>
+
+  <script>
+    // Intersection Observer für Animationen beim Scrollen
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Animation nur einmal abspielen
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
